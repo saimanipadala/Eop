@@ -1,0 +1,85 @@
+.invitation-container {
+  background-color: rgba(255, 255, 255, 0.45); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Apply the blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  max-width: 77%; /* Decrease the maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 3em;
+  border-radius: 55px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border to mimic glass edges */
+}
+.rsvp-button {
+  /* display: flex; Use flexbox for alignment */
+  align-items: center; /* Vertically center icon and text */
+  justify-content: center; /* Horizontally center content */
+  gap: 8px; /* Space between the icon and text */
+
+  margin-top: 1em;
+  padding: 0.4em 0.5em;
+  background-color: #A4795E;
+  color: white;
+  border-radius: 5px;
+  border: none; /* Remove default button border */
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  text-decoration: none; /* Keep the text-decoration even for a button */
+  transition: background-color 0.3s ease;
+}
+
+.rsvp-button:hover {
+  background-color: #7c5847;
+}
+
+.rsvp-button .location-icon {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+  margin-bottom: -4px; /* Adjust this value to move the icon */
+}
+
+.invitation-container-2 {
+  background-color: rgba(255, 255, 255, 0.45); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Apply the blur effect to the background */
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  max-width: 77%; /* Decrease the maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 3em;
+  margin-top: 20px;
+  border-radius: 55px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border to mimic glass edges */
+}
+
+.taglineT{
+    font-size: 21px;
+}
+
+.invitation-container-2 .venue {
+    text-decoration: underline;
+}
+
+.invitation-container h1 {
+  margin-bottom: 0.5em; /* Add space below the heading */
+}
+
+.invitation-container p {
+  margin-bottom: 1em; /* Add space below each paragraph */
+}
+
+.video-container {
+  width: 100%; /* Make the container span the full width of its parent */
+  margin: 0 auto; /* Center the container horizontally */
+  max-width: 900px; /* Optional: Limit the maximum size */
+  margin-bottom: 2em; /* Add some space below the video */
+}
+
+/* Style the video element to fit its container */
+.video-container video {
+  width: 100%; /* Make the video fill the container width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add shadow */
+}

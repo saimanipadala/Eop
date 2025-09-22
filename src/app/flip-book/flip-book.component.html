@@ -1,0 +1,21 @@
+<div class="flip-book-container">
+  <div class="book-cover">
+    <img [src]="images[0]" alt="Book Cover">
+  </div>
+  <div class="book-pages">
+    <div class="page" 
+         *ngFor="let image of images; let i = index"
+         [class.flipped]="i < currentPageIndex">
+      <div class="front-page">
+        <img [src]="images[i]" alt="Page {{i + 1}}">
+      </div>
+      <div class="back-page">
+        <img [src]="images[i+1] || images[i]" alt="Next Page">
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <button (click)="prevPage()" [disabled]="currentPageIndex === 0">Previous</button>
+    <button (click)="nextPage()" [disabled]="currentPageIndex >= images.length - 1">Next</button>
+  </div>
+</div>

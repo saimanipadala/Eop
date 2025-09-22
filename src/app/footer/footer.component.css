@@ -1,0 +1,18 @@
+footer {
+  background-color: rgba(255, 255, 255, 0.45); /* Match the glass transparency effect */
+  backdrop-filter: blur(10px);
+  padding: 2em;
+  text-align: center;
+  color: #555;
+  margin-top: 20px; /* Gap between the last component and the footer */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional: A top border for separation */
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.social-links {
+  margin-top: 1em;
+}

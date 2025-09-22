@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+  body{
+  background-image: url('assets/images/weddingbg.jpg');
+  
+  /* Scales the image to cover the entire element */
+  background-size: cover; 
+  
+  /* Prevents the image from tiling or repeating */
+  background-repeat: no-repeat; 
+  
+  /* Centers the image within the viewport */
+  background-position: center; 
+  
+  /* Makes the background fixed so it doesn't scroll with content */
+  background-attachment: fixed; 
+  
+  /* Ensure the body takes up at least the full viewport height */
+  min-height: 100vh;
+}
+
+/* Animation Keyframes: Fade In Up */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to the main content wrapper */
+.main-content {
+  animation: fadeInUp 2s ease-out forwards;
+}
