@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { LeafletModule } from '@asymmetrik/ngx-leaflet'; // Import LeafletModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InvitationDetailsComponent } from './invitation-details/invitation-details.component';
@@ -9,6 +9,7 @@ import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { FlipBookComponent } from './flip-book/flip-book.component';
 import { PhotoAlbumComponent } from './photo-album/photo-album.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,12 @@ import { PhotoAlbumComponent } from './photo-album/photo-album.component';
     SlideshowComponent,
     FooterComponent,
     FlipBookComponent,
-    PhotoAlbumComponent
+    PhotoAlbumComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
+    LeafletModule,
     AppRoutingModule
   ],
   providers: [],
