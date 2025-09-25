@@ -51,16 +51,21 @@
 }
 
 .invitation-container-2 {
+ background-image: url('/assets/images/wedding templet.jpg');
+  /* height: 200vh; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-color: rgba(255, 255, 255, 0.45); /* Semi-transparent white background */
   backdrop-filter: blur(10px); /* Apply the blur effect to the background */
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  max-width: 77%; /* Decrease the maximum width of the container */
+  max-width: 35%; /* Decrease the maximum width of the container */
   margin: 0 auto; /* Center the container horizontally */
   padding: 3em;
-  margin-top: 20px;
   border-radius: 55px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border to mimic glass edges */
+  min-height: 800px;
 }
 
 .taglineT{
