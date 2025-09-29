@@ -1,18 +1,42 @@
 footer {
-  background-color: rgba(255, 255, 255, 0.45); /* Match the glass transparency effect */
+  background-color: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(10px);
-  padding: 2em;
+  padding: 2em 1em; /* Add horizontal padding for smaller screens */
   text-align: center;
   color: #555;
-  margin-top: 20px; /* Gap between the last component and the footer */
-  border-top: 1px solid rgba(255, 255, 255, 0.2); /* Optional: A top border for separation */
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-content {
-  max-width: 960px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Stack items vertically by default for mobile */
+  align-items: center; /* Center items horizontally */
+  gap: 1em; /* Add space between items */
 }
 
+/* Social links styling for mobile */
 .social-links {
-  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.social-links a {
+  color: #555;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row; /* Switch to horizontal layout on wider screens */
+    justify-content: space-between; /* Align copyright and social links to opposite ends */
+    max-width: 960px; /* Constrain content width */
+    margin: 0 auto; /* Center the content container */
+  }
 }
