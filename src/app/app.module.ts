@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FlipBookComponent } from './flip-book/flip-book.component';
 import { PhotoAlbumComponent } from './photo-album/photo-album.component';
 import { MapComponent } from './map/map.component';
+import { SparkleOverlayComponent } from './sparkle-overlay/sparkle-overlay.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { MapComponent } from './map/map.component';
     FlipBookComponent,
     PhotoAlbumComponent,
     MapComponent,
+    SparkleOverlayComponent
   ],
   imports: [
     BrowserModule,
