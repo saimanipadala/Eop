@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvitationDetailsComponent implements OnInit {
  coupleNames = 'SUNDAR ❤️ JAHNAVI';
-  date = 'Friday, October 24, 2025';
+  date = 'Friday, October 24, 2025✍';
   venue= 'V͟e͟n͟u͟e͟'
   location = 'VenuGoplala Auditorium';
 

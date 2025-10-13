@@ -1,112 +1,153 @@
-.invitation-container {
+
+
+
+/* ============ Base Styles ============ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Invitation Containers */
+.invitation-container,
+.invitation-container-2 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url('/assets/images/wedding templet.jpg');
-  /* height: 200vh; */
-  background-size: cover;
-  background-position: center;
+  /* Make the background image fit inside the container without cropping */
+  background-size: contain;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.45); /* Semi-transparent white background */
-  backdrop-filter: blur(10px); /* Apply the blur effect to the background */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  max-width: 35%; /* Decrease the maximum width of the container */
-  margin: 0 auto; /* Center the container horizontally */
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 35%;
+  margin: 3em auto;
   padding: 3em;
   border-radius: 55px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border to mimic glass edges */
-  min-height: 800px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 769px; /* reduced so it scales better on small screens */
+  text-align: center;
+  overflow: hidden; /* keep absolutely positioned children clipped */
 }
-.rsvp-button {
-  /* display: flex; Use flexbox for alignment */
-  align-items: center; /* Vertically center icon and text */
-  justify-content: center; /* Horizontally center content */
-  gap: 8px; /* Space between the icon and text */
 
+/* Text Content */
+.tagline,
+.taglineT {
+  font-size: 21px;
+}
+
+.venue {
+  text-decoration: underline;
+}
+
+.invitation-container h1,
+.invitation-container-2 h1 {
+  margin-bottom: 0.5em;
+  /* Primary heading scales from 1.5rem to 3rem depending on viewport */
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+}
+
+.invitation-container p,
+.invitation-container-2 p {
+  margin-bottom: 1em;
+}
+
+/* Inner fixed-placement content */
+.invitation-container .coupleNames,
+.invitation-container-2 .coupleNames {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 46%;
+  pointer-events: none; /* text doesn't block clicks on background */
+}
+
+.invitation-container .coupleNames *,
+.invitation-container-2 .coupleNames * {
+  pointer-events: auto; /* allow interaction with inner links/buttons if any */
+}
+
+.invitation-container .action-buttons,
+.invitation-container-2 .action-buttons {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+/* Button layout helpers */
+.action-buttons { display: flex; gap: 0.6rem; }
+
+/* Default desktop: keep inline buttons */
+.action-buttons .rsvp-button { white-space: nowrap; }
+
+.invitation-container .coupleNames h1,
+.invitation-container-2 .coupleNames h1 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+/* Text adjustments for tagline and venue */
+.invitation-container .tagline,
+.invitation-container-2 .taglineT {
+  font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+  margin-bottom: 0.4rem;
+}
+
+.invitation-container p,
+.invitation-container-2 p {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+}
+
+.venue { font-weight: 600; }
+
+.invitation-container .tagline,
+.invitation-container-2 .taglineT {
+  margin-top: 0.6rem;
+}
+
+/* RSVP Button */
+.rsvp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   margin-top: 1em;
-  padding: 0.4em 0.5em;
+  padding: 0.6em 1em;
   background-color: #A4795E;
   color: white;
   border-radius: 5px;
-  border: none; /* Remove default button border */
+  border: none;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 1rem;
-  text-decoration: none; /* Keep the text-decoration even for a button */
   transition: background-color 0.3s ease;
-}
-
-.coupleNames{
-   text-align: center;
-  margin-top: 182px; 
+  text-decoration: none;
 }
 
 .rsvp-button:hover {
   background-color: #7c5847;
 }
 
-.rsvp-button .location-icon {
+.location-icon {
   fill: currentColor;
   width: 20px;
   height: 20px;
-  margin-bottom: -4px; /* Adjust this value to move the icon */
+  margin-bottom: -4px;
 }
 
-.invitation-container-2 {
- background-image: url('/assets/images/wedding templet.jpg');
-  /* height: 200vh; */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.45); /* Semi-transparent white background */
-  backdrop-filter: blur(10px); /* Apply the blur effect to the background */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
-  max-width: 35%; /* Decrease the maximum width of the container */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 3em;
-  border-radius: 55px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border to mimic glass edges */
-  min-height: 800px;
-}
-
-.taglineT{
-    font-size: 21px;
-}
-
-.invitation-container-2 .venue {
-    text-decoration: underline;
-}
-
-.invitation-container h1 {
-  margin-bottom: 0.5em; /* Add space below the heading */
-}
-
-.invitation-container p {
-  margin-bottom: 1em; /* Add space below each paragraph */
-}
-
-.video-container {
-  width: 100%; /* Make the container span the full width of its parent */
-  margin: 0 auto; /* Center the container horizontally */
-  max-width: 900px; /* Optional: Limit the maximum size */
-  margin-bottom: 2em; /* Add some space below the video */
-}
-
-/* Style the video element to fit its container */
-.video-container video {
-  width: 100%; /* Make the video fill the container width */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Add shadow */
-}
-
-/* Ui */
-
+/* Card Flip */
 .card-container {
-  display: flex;             /* Enables Flexbox on the container */
-  justify-content: center;   /* Centers child horizontally */
-  align-items: center;       /* Centers child vertically */
-  min-height: 100vh;         /* Occupies the full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .card {
@@ -133,28 +174,157 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
 }
 
 .card-front {
   background-color: #6A2C70;
-  color: #fff;
-  display: flex;
-  align-items: center;
   border: 10px solid #6A2C70;
-  border-radius: 10px;
-  justify-content: center;
-  font-size: 24px;
-  transform: rotateY(0deg);
 }
 
 .card-back {
   background-color: #F08A5D;
-  color: #fff;
-  display: flex;
-  align-items: center;
   border: 10px solid #F08A5D;
-  border-radius: 10px;
-  justify-content: center;
-  font-size: 24px;
   transform: rotateY(180deg);
+}
+
+/* Video */
+.video-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 2em auto;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ============ Responsive Styles ============ */
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .invitation-container,
+  .invitation-container-2 {
+    max-width: 95%;
+    padding: 1.4em 1em;
+    border-radius: 18px;
+    min-height: 420px; /* set a smaller fixed height for predictable layout */
+  }
+
+  .rsvp-button {
+    font-size: 0.85rem;
+    padding: 0.5em 0.7em;
+  }
+
+  .video-container {
+    padding: 0 0.5em;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 16px;
+    padding: 1em;
+  }
+
+  /* Reposition fixed elements for narrow mobile screens */
+  .invitation-container .coupleNames,
+  .invitation-container-2 .coupleNames {
+    top: 16%;
+    width: 65%;
+  }
+
+  .invitation-container .action-buttons,
+  .invitation-container-2 .action-buttons {
+    bottom: 4%;
+  }
+
+  /* Mobile: make button full width and large tap target */
+  .action-buttons { width: 100%; justify-content: center; margin: 0px 6px -56px 15px;}
+  .action-buttons .rsvp-button {
+    width: 92%;
+    max-width: 420px;
+    padding: 0.9em 1em;
+    font-size: 1rem;
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  /* Very small screens: compact circular icon-only button */
+  @media screen and (max-width: 400px) {
+    .action-buttons .rsvp-button {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* hide the text label inside the button but keep the icon accessible
+       make sure to use aria-label on the HTML element for screen readers */
+    .action-buttons .rsvp-button span { display: none; }
+    .action-buttons .rsvp-button .location-icon { width: 22px; height: 22px; }
+  }
+  .invitation-container[_ngcontent-ng-c694143671] .coupleNames[_ngcontent-ng-c694143671] h1[_ngcontent-ng-c694143671], .invitation-container-2[_ngcontent-ng-c694143671] .coupleNames[_ngcontent-ng-c694143671] h1[_ngcontent-ng-c694143671] {
+    line-height: 1.05;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+}
+
+/* Tablet */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .invitation-container,
+  .invitation-container-2 {
+    max-width: 80%;
+    padding: 2em 2.5em;
+    border-radius: 28px;
+    min-height: 520px; /* fixed-ish height to hold content placement */
+  }
+
+  .card {
+    width: 80%;
+    height: 200px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 20px;
+  }
+
+  /* Tablet: adjust inner placement to be visually consistent */
+  .invitation-container .coupleNames,
+  .invitation-container-2 .coupleNames {
+    top: 18%;
+    width: 85%;
+  }
+
+  .invitation-container .action-buttons,
+  .invitation-container-2 .action-buttons {
+    bottom: 5%;
+  }
+
+  /* Tablet: slightly wider button, centered */
+  .action-buttons { width: 100%; justify-content: center; }
+  .action-buttons .rsvp-button {
+    width: 70%;
+    max-width: 560px;
+    padding: 0.8em 1em;
+    font-size: 1rem;
+  }
 }

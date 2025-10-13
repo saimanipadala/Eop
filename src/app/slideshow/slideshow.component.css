@@ -58,3 +58,16 @@ margin-top: 45px;
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
+
+img{
+    height: 628px;
+    width: 962px;
+}
+
+
+@media screen and (max-width: 600px) {
+  img{
+     height: 242px;
+    width: 308px;
+}
+}

@@ -34,8 +34,6 @@ footer {
 
 @media (min-width: 768px) {
   .footer-content {
-    flex-direction: row; /* Switch to horizontal layout on wider screens */
-    justify-content: space-between; /* Align copyright and social links to opposite ends */
     max-width: 960px; /* Constrain content width */
     margin: 0 auto; /* Center the content container */
   }
