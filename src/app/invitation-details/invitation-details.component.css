@@ -249,7 +249,7 @@ body {
 /* ============ Responsive Styles ============ */
 
 /* Mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .invitation-container,
   .invitation-container-2 {
     max-width: 95%;
@@ -303,7 +303,7 @@ body {
   }
 
   /* Very small screens: compact circular icon-only button */
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 600px) {
     .action-buttons .rsvp-button {
       width: 48px;
       height: 48px;
@@ -327,7 +327,7 @@ body {
 }
 
 /* Tablet */
-@media screen and (min-width: 601px) and (max-width: 900px) {
+@media screen and (min-width: 701px) and (max-width: 900px) {
   .invitation-container,
   .invitation-container-2 {
     max-width: 80%;
