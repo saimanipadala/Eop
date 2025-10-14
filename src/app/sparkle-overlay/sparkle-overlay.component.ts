@@ -1,4 +1,3 @@
-// snowfall-overlay.component.ts
 import {
   Component,
   OnInit,
@@ -8,20 +7,24 @@ import {
   OnDestroy,
 } from '@angular/core';
 
-interface Snowflake {
+interface Sparkle {
   x: number;
   y: number;
-  radius: number;
+  size: number;
   speedY: number;
   speedX: number;
   opacity: number;
+  opacityChange: number;
+  color: string;
+  rotation: number;
+  rotationSpeed: number;
 }
 
 @Component({
   selector: 'app-sparkle-overlay',
-  template: `<canvas #snowCanvas class="snow-canvas"></canvas>`,
+  template: `<canvas #sparkleCanvas class="sparkle-canvas"></canvas>`,
   styles: [`
-    .snow-canvas {
+    .sparkle-canvas {
       position: fixed;
       top: 0;
       left: 0;
@@ -33,11 +36,22 @@ interface Snowflake {
   `]
 })
 export class SparkleOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('snowCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('sparkleCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
   private canvas!: HTMLCanvasElement;
   private ctx!: CanvasRenderingContext2D;
-  private snowflakes: Snowflake[] = [];
+  private sparkles: Sparkle[] = [];
   private animationId: number | null = null;
+
+  private colors = [
+    '#FFD700', // gold
+    '#FF69B4', // pink
+    '#00FFFF', // cyan
+    '#ADFF2F', // green-yellow
+    '#FFA500', // orange
+    '#BA55D3', // purple
+    '#FFFFFF', // white
+    '#a52121ff', // red
+  ];
 
   ngOnInit() {}
 
@@ -50,7 +64,7 @@ export class SparkleOverlayComponent implements OnInit, AfterViewInit, OnDestroy
     this.resizeCanvas();
     window.addEventListener('resize', this.resizeCanvas);
 
-    this.createSnowflakes(150); // Adjust count if needed
+    this.createSparkles(100); // Adjust sparkle count
     this.animate();
   }
 
@@ -59,51 +73,79 @@ export class SparkleOverlayComponent implements OnInit, AfterViewInit, OnDestroy
     this.canvas.height = window.innerHeight;
   };
 
-  private createSnowflakes(count: number) {
+  private createSparkles(count: number) {
     for (let i = 0; i < count; i++) {
-      this.snowflakes.push({
+      this.sparkles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        radius: Math.random() * 3 + 2, // make sure they're visible
-        speedY: Math.random() * 1.5 + 0.5,
-        speedX: Math.random() * 0.5 - 0.25,
-        opacity: Math.random() * 0.5 + 0.5,
+        size: Math.random() * 3 + 2,
+        speedY: Math.random() * 0.6 + 0.2,
+        speedX: Math.random() * 0.4 - 0.2,
+        opacity: Math.random() * 0.7 + 0.3,
+        opacityChange: (Math.random() * 0.03) - 0.015,
+        color: this.colors[Math.floor(Math.random() * this.colors.length)],
+        rotation: Math.random() * Math.PI,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
       });
     }
+  }
+
+  private drawSparkle(sp: Sparkle) {
+    const { ctx } = this;
+    const spikes = 4; // 4-point sparkle (change to 6 for more)
+    const outerRadius = sp.size * 2.5;
+    const innerRadius = sp.size * 0.8;
+
+    ctx.save();
+    ctx.translate(sp.x, sp.y);
+    ctx.rotate(sp.rotation);
+    ctx.beginPath();
+
+    for (let i = 0; i < spikes * 2; i++) {
+      const radius = (i % 2 === 0) ? outerRadius : innerRadius;
+      const angle = (i * Math.PI) / spikes;
+      const x = Math.cos(angle) * radius;
+      const y = Math.sin(angle) * radius;
+      ctx.lineTo(x, y);
+    }
+
+    ctx.closePath();
+    ctx.globalAlpha = sp.opacity;
+    ctx.fillStyle = sp.color;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = sp.color;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.restore();
   }
 
   private animate = () => {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    for (let flake of this.snowflakes) {
-      // Update position
-      flake.y += flake.speedY;
-      flake.x += flake.speedX;
+    for (let sp of this.sparkles) {
+      // Move sparkle
+      sp.y += sp.speedY;
+      sp.x += sp.speedX;
+      sp.rotation += sp.rotationSpeed;
 
-      // Wrap around if out of bounds
-      if (flake.y > this.canvas.height) {
-        flake.y = 0;
-        flake.x = Math.random() * this.canvas.width;
-      }
+      // Twinkle
+      sp.opacity += sp.opacityChange;
+      if (sp.opacity <= 0.2 || sp.opacity >= 1) sp.opacityChange *= -1;
 
-      if (flake.x > this.canvas.width) flake.x = 0;
-      if (flake.x < 0) flake.x = this.canvas.width;
+      // Wrap around edges
+      if (sp.y > this.canvas.height) sp.y = 0;
+      if (sp.x > this.canvas.width) sp.x = 0;
+      if (sp.x < 0) sp.x = this.canvas.width;
 
-      // Draw snowflake
-      this.ctx.beginPath();
-      this.ctx.globalAlpha = flake.opacity;
-      this.ctx.fillStyle = '#fff';
-      this.ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
-      this.ctx.fill();
+      // Draw sparkle shape
+      this.drawSparkle(sp);
     }
 
     this.animationId = requestAnimationFrame(this.animate);
   };
 
   ngOnDestroy() {
-    if (this.animationId) {
-      cancelAnimationFrame(this.animationId);
-    }
+    if (this.animationId) cancelAnimationFrame(this.animationId);
     window.removeEventListener('resize', this.resizeCanvas);
   }
 }

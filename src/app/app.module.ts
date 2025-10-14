@@ -8,7 +8,7 @@ import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { FooterComponent } from './footer/footer.component';
 import { FlipBookComponent } from './flip-book/flip-book.component';
-import { PhotoAlbumComponent } from './photo-album/photo-album.component';
+// import { PhotoAlbumComponent } from './photo-album/photo-album.component';
 import { MapComponent } from './map/map.component';
 import { SparkleOverlayComponent } from './sparkle-overlay/sparkle-overlay.component';
 
@@ -21,7 +21,7 @@ import { SparkleOverlayComponent } from './sparkle-overlay/sparkle-overlay.compo
     SlideshowComponent,
     FooterComponent,
     FlipBookComponent,
-    PhotoAlbumComponent,
+    // PhotoAlbumComponent,
     MapComponent,
     SparkleOverlayComponent
   ],
