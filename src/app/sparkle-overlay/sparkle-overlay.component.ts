@@ -92,7 +92,7 @@ export class SparkleOverlayComponent implements OnInit, AfterViewInit, OnDestroy
       this.sparkles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        size: Math.random() * 3 + 2,
+        size: Math.random() * 2+ 1,
         speedY: Math.random() * 0.6 + 0.2,
         speedX: Math.random() * 0.4 - 0.2,
         opacity: Math.random() * 0.7 + 0.3,

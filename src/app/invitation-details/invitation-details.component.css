@@ -78,7 +78,7 @@ body {
 .invitation-container-2 .action-buttons {
   position: absolute;
   left: 50%;
-  bottom: 6%;
+  bottom: 2%;
   transform: translateX(-50%);
   pointer-events: auto;
 }
@@ -93,6 +93,45 @@ body {
 .invitation-container-2 .coupleNames h1 {
   margin: 0;
   line-height: 1.05;
+}
+
+/* Countdown timer styles */
+.countdown {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1rem;
+  pointer-events: auto;
+}
+
+.countdown-item {
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  min-width: 64px;
+  text-align: center;
+}
+
+.countdown-value {
+  display: block;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  color: blue;
+}
+
+.countdown-label {
+  display: block;
+  font-size: 0.65rem;
+  opacity: 0.85;
+  color: blue;
+}
+
+@media screen and (max-width: 600px) {
+  .countdown-item { min-width: 46px; padding: 0.35rem 0.45rem; }
+  .countdown-value { font-size: 1rem; }
+  .countdown-label { font-size: 0.6rem; }
 }
 
 /* Text adjustments for tagline and venue */
@@ -195,7 +234,7 @@ body {
 
 /* Video */
 .video-container {
-  width: 100%;
+  width: 90%;
   max-width: 900px;
   margin: 2em auto;
 }
@@ -216,7 +255,7 @@ body {
     max-width: 95%;
     padding: 1.4em 1em;
     border-radius: 18px;
-    min-height: 420px; /* set a smaller fixed height for predictable layout */
+    min-height: 487px; /* set a smaller fixed height for predictable layout */
   }
 
   .rsvp-button {
