@@ -66,7 +66,21 @@ export class SparkleOverlayComponent implements OnInit, AfterViewInit, OnDestroy
 
     this.createSparkles(100); // Adjust sparkle count
     this.animate();
+
+    const sparkleCount = this.getSparkleCount();
+    this.createSparkles(sparkleCount);
+
+    this.animate();
   }
+
+ private getSparkleCount(): number {
+    const area = window.innerWidth * window.innerHeight;
+    if (area < 500_000) return 40;   // small phones
+    if (area < 1_000_000) return 70; // tablets
+    if (area < 2_000_000) return 100; // small laptop
+    return 150; // large monitors
+  }
+
 
   private resizeCanvas = () => {
     this.canvas.width = window.innerWidth;

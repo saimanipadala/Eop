@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet'; // Import LeafletModule
+// import { LeafletModule } from '@asymmetrik/ngx-leaflet'; // Import LeafletModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InvitationDetailsComponent } from './invitation-details/invitation-details.component';
@@ -27,7 +27,7 @@ import { SparkleOverlayComponent } from './sparkle-overlay/sparkle-overlay.compo
   ],
   imports: [
     BrowserModule,
-    LeafletModule,
+    // LeafletModule,
     AppRoutingModule
   ],
   providers: [],
