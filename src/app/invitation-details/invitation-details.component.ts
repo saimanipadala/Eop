@@ -7,8 +7,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class InvitationDetailsComponent implements OnInit, OnDestroy {
  coupleNames = 'SUNDAR ❤️ JAHNAVI';
-  date = 'Friday, October 24, 2025 ✍';
-  time= '7:00 P.m Onwards';
+  date = 'On 24th October, Friday, 2025, <br> at 10:40pm ✍';
+  time= '🍽️ 7:00 P.m Onwards ';
   venue= 'V͟e͟n͟u͟e͟'
   location = 'VenuGoplala Auditorium';
 
