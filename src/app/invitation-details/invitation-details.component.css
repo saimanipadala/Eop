@@ -78,7 +78,7 @@ body {
 .invitation-container-2 .action-buttons {
   position: absolute;
   left: 50%;
-  bottom: 2%;
+  /* bottom: 2%; */
   transform: translateX(-50%);
   pointer-events: auto;
 }
@@ -287,7 +287,7 @@ body {
 
   .invitation-container .action-buttons,
   .invitation-container-2 .action-buttons {
-    bottom: 4%;
+    /* bottom: 4%; */
   }
 
   /* Mobile: make button full width and large tap target */
@@ -369,7 +369,7 @@ body {
 }
 
 /* 📱 Responsive Adjustments */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .invitation-container,
   .invitation-container-2 {
     max-width: 80%;
@@ -397,4 +397,4 @@ body {
     border-radius: 25px;
     background-size: cover;
   }
-}
+} */
