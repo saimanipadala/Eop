@@ -285,10 +285,10 @@ body {
     width: 65%;
   }
 
-  .invitation-container .action-buttons,
+  /* .invitation-container .action-buttons,
   .invitation-container-2 .action-buttons {
-    /* bottom: 4%; */
-  }
+    bottom: 4%;
+  } */
 
   /* Mobile: make button full width and large tap target */
   .action-buttons { width: 100%; justify-content: center; margin: 0px 6px -56px 15px;}
